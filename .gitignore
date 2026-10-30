@@ -361,4 +361,4 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
-/RestaurantApp_API/Tavern Restaurant UI Showcase.png
+/src/RestaurantApp.API/Tavern Restaurant UI Showcase.png
