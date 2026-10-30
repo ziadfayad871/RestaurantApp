@@ -1,7 +1,9 @@
 
 using Microsoft.EntityFrameworkCore;
 using RestaurantApp_API.Data;
+using RestaurantApp_API.IRepository;
 using RestaurantApp_API.Mapping;
+using RestaurantApp_API.Repositories;
 using Scalar.AspNetCore;
 
 namespace RestaurantApp_API
@@ -16,6 +18,12 @@ namespace RestaurantApp_API
             builder.Services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(connectionString));
             builder.Services.AddAutoMapper(cfg => { }, typeof(MappingProfile).Assembly);
+            builder.Services.AddScoped<IMenuItemRepository, MenuItemRepository>();
+            builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
+
+
+
+
             // Add services to the container.
 
             builder.Services.AddControllers();
