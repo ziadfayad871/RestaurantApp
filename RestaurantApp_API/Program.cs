@@ -1,6 +1,8 @@
 
 using Microsoft.EntityFrameworkCore;
 using RestaurantApp_API.Data;
+using RestaurantApp_API.Mapping;
+using Scalar.AspNetCore;
 
 namespace RestaurantApp_API
 {
@@ -13,18 +15,19 @@ namespace RestaurantApp_API
             // add conection string to the services container : 
             builder.Services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(connectionString));
-
+            builder.Services.AddAutoMapper(cfg => { }, typeof(MappingProfile).Assembly);
             // Add services to the container.
 
             builder.Services.AddControllers();
-            // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
-            builder.Services.AddEndpointsApiExplorer();
+            builder.Services.AddOpenApi();
 
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
             if (app.Environment.IsDevelopment())
             {
+                app.MapOpenApi();
+                app.MapScalarApiReference();
             }
 
             app.UseHttpsRedirection();
