@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>مطعمنا - لوحة المطبخ</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.rtl.min.css" rel="stylesheet" />
+    <style>
+        body { background-color: #f1f3f5; font-family: 'Segoe UI', Tahoma, sans-serif; }
+        .sidebar { background: #fff; min-height: 100vh; width: 230px; box-shadow: 0 0 8px rgba(0,0,0,.07); }
+        .brand-mark { color: #e8590c; font-weight: 800; font-size: 1.3rem; }
+        .sidebar .nav-link { border-radius: .6rem; padding: .6rem 1rem; color: #495057; }
+        .sidebar .nav-link.active { background: #ede7e2; color: #e8590c; font-weight: 700; }
+        .stat-card { border-radius: 1rem; padding: 1rem; color: #fff; font-weight: 700; }
+        .kanban-col { background: transparent; }
+        .order-card { background: #fff; border-radius: .9rem; box-shadow: 0 2px 8px rgba(0,0,0,.07); }
+        .order-num { font-weight: 800; color: #343a40; }
+        .action-btn { border-radius: .7rem; font-size: .85rem; font-weight: 700; }
+        .btn-start { background: #2b8a3e; color: #fff; }
+        .btn-ready { background: #1971c2; color: #fff; }
+        .btn-delivered { background: #495057; color: #fff; }
+    </style>
+</head>
+<body>
+
+    <div class="d-flex">
+
+        <!-- Sidebar -->
+        <div class="sidebar d-flex flex-column">
+            <div class="brand-mark px-4 py-3">🍅 مطعمنا</div>
+            <ul class="nav flex-column px-3 gap-1">
+                <li class="nav-item"><a class="nav-link active" href="#kboard">🍱 الطلبات</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">🍽️ المنيو</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">🗂️ التصنيفات</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">👥 المستخدمين</a></li>
+                <li class="nav-item"><a class="nav-link text-danger" href="#">🚪 تسجيل خروج</a></li>
+            </ul>
+        </div>
+
+        <!-- Main -->
+        <div class="container-fluid p-4">
+
+            <div class="d-flex justify-content-between align-items-center mb-3">
+                <h4 class="fw-bold">👨‍🍳 لوحة المطبخ</h4>
+                <span class="badge bg-success">الأسبوع 5 جارِي</span>
+            </div>
+
+            <!-- Stat cards -->
+            <div class="row g-3 mb-4">
+                <div class="col-md-2">
+                    <div class="stat-card bg-danger">🆕 طلبات جديدة<span class="d-block fs-3">5</span></div>
+                </div>
+                <div class="col-md-2">
+                    <div class="stat-card bg-primary">🍳 قيد التحضير<span class="d-block fs-3">3</span></div>
+                </div>
+                <div class="col-md-2">
+                    <div class="stat-card bg-success">✅ جاهز<span class="d-block fs-3">2</span></div>
+                </div>
+            </div>
+
+            <!-- Kanban -->
+            <div class="row g-4">
+
+                <!-- Column 1 -->
+                <div class="col-md-4 kanban-col">
+                    <h6 class="fw-bold text-danger mb-3">⏳ قيد الانتظار</h6>
+
+                    <div class="order-card p-3 mb-3">
+                        <div class="order-num mb-1">طلب #104 — الطاولة 12</div>
+                        <div class="small text-muted">2x كرواسون مشروم، 1x فاهيتا دجاج</div>
+                        <div class="d-flex justify-content-between mt-3">
+                            <span class="fw-bold">380 ج</span>
+                            <button class="btn action-btn btn-start py-1 px-3">بدء التحضير ➜</button>
+                        </div>
+                    </div>
+
+                    <div class="order-card p-3">
+                        <div class="order-num mb-1">طلب #105 — طاولة 7</div>
+                        <div class="small text-muted">2x تشيكن شاورما، 1x بيف برجر</div>
+                        <div class="d-flex justify-content-between mt-3">
+                            <span class="fw-bold">260 ج</span>
+                            <button class="btn action-btn btn-start py-1 px-3">بدء التحضير ➜</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Column 2 -->
+                <div class="col-md-4 kanban-col">
+                    <h6 class="fw-bold text-primary mb-3">🍳 قيد التحضير</h6>
+
+                    <div class="order-card p-3 mb-3">
+                        <div class="order-num mb-1">طلب #102 — طاولة 5</div>
+                        <div class="small text-muted">1x فاهيتا دجاج، 3x سبرينج رولز</div>
+                        <div class="d-flex justify-content-between mt-3">
+                            <span class="fw-bold">210 ج</span>
+                            <button class="btn action-btn btn-ready py-1 px-3">جاهز ✅</button>
+                        </div>
+                    </div>
+
+                    <div class="order-card p-3">
+                        <div class="order-num mb-1">طلب #103 — طاولة 9</div>
+                        <div class="small text-muted">2x سبرينج رولز، 1x سوفت درينك</div>
+                        <div class="d-flex justify-content-between mt-3">
+                            <span class="fw-bold">84 ج</span>
+                            <button class="btn action-btn btn-ready py-1 px-3">جاهز ✅</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Column 3 -->
+                <div class="col-md-4 kanban-col">
+                    <h6 class="fw-bold text-success mb-3">✅ جاهز للتقديم</h6>
+
+                    <div class="order-card p-3 mb-3">
+                        <div class="order-num mb-1">طلب #101 — طاولة 2</div>
+                        <div class="small text-muted">1x بيف برجر، 1x سنيك</div>
+                        <div class="d-flex justify-content-between mt-3">
+                            <span class="fw-bold">170 ج</span>
+                            <button class="btn action-btn btn-delivered py-1 px-3">تم التسليم ✔️</button>
+                        </div>
+                    </div>
+
+                    <div class="order-card p-3">
+                        <div class="order-num mb-1">طلب #100 — طاولة 15</div>
+                        <div class="small text-muted">4x تشيكن شاورما، 2x طويل فاهيتا</div>
+                        <div class="d-flex justify-content-between mt-3">
+                            <span class="fw-bold">350 ج</span>
+                            <button class="btn action-btn btn-delivered py-1 px-3">تم التسليم ✔️</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+</body>
+</html>

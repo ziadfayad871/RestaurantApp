@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>مطعمنا - سلة المشتريات</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.rtl.min.css" rel="stylesheet" />
+    <style>
+        body { background-color: #f8f5f2; font-family: 'Segoe UI', Tahoma, sans-serif; }
+        .navbar { background-color: #fff; box-shadow: 0 1px 6px rgba(0,0,0,.08); }
+        .brand-mark { color: #e8590c; font-weight: 800; font-size: 1.4rem; }
+        .cart-card, .summary-card { background: #fff; border-radius: 1rem; box-shadow: 0 2px 10px rgba(0,0,0,.06); }
+        .food-thumb { width: 56px; height: 56px; border-radius: .8rem; display: flex; align-items: center; justify-content: center; font-size: 1.6rem; color: #fff; }
+        .qty-input { width: 64px; text-align: center; border: 1px solid #e0d8d0; border-radius: .5rem; }
+        .btn-qty { border: 1px solid #e0d8d0; background: #fff; width: 30px; }
+        .total-row { font-size: 1.25rem; font-weight: 800; color: #2b8a3e; }
+        .btn-confirm { background: #2b8a3e; border: none; border-radius: .8rem; font-weight: 700; }
+        .btn-delete { border: 1px solid #ffc9c9; color: #e03131; background: #fff; }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar px-4 py-2 mb-4" dir="rtl">
+        <span class="brand-mark">🍅 مطعمنا</span>
+        <div class="d-flex gap-4">
+            <a class="nav-link text-muted" href="#">المنيو</a>
+            <a class="nav-link active fw-bold" href="#">الكارت</a>
+        </div>
+        <button class="btn btn-outline-secondary rounded-3">↩️ رجّعني للمنيو</button>
+    </nav>
+
+    <div class="container">
+        <h4 class="fw-bold mb-4">🛒 سلة المشتريات</h4>
+
+        <div class="row g-4">
+
+            <!-- Cart items -->
+            <div class="col-lg-8">
+                <div class="cart-card p-4">
+
+                    <!-- Item 1 -->
+                    <div class="d-flex align-items-center gap-3 py-3 border-bottom">
+                        <div class="food-thumb bg-warning">🌯</div>
+                        <div class="flex-grow-1">
+                            <div class="fw-bold">تشيكن شاورما</div>
+                            <div class="text-muted small">75 ج للقطعة</div>
+                        </div>
+                        <div class="d-flex align-items-center gap-2">
+                            <button class="btn btn-qty">−</button>
+                            <input class="qty-input" type="number" value="2" />
+                            <button class="btn btn-qty">+</button>
+                        </div>
+                        <div class="fw-bold">150 ج</div>
+                        <button class="btn btn-delete">🗑️</button>
+                    </div>
+
+                    <!-- Item 2 -->
+                    <div class="d-flex align-items-center gap-3 py-3 border-bottom">
+                        <div class="food-thumb bg-success">🍕</div>
+                        <div class="flex-grow-1">
+                            <div class="fw-bold">بيتزا مارجريتا</div>
+                            <div class="text-muted small">120 ج للقطعة</div>
+                        </div>
+                        <div class="d-flex align-items-center gap-2">
+                            <button class="btn btn-qty">−</button>
+                            <input class="qty-input" type="number" value="1" />
+                            <button class="btn btn-qty">+</button>
+                        </div>
+                        <div class="fw-bold">120 ج</div>
+                        <button class="btn btn-delete">🗑️</button>
+                    </div>
+
+                    <!-- Item 3 -->
+                    <div class="d-flex align-items-center gap-3 py-3">
+                        <div class="food-thumb bg-danger">🍔</div>
+                        <div class="flex-grow-1">
+                            <div class="fw-bold">بيف برجر</div>
+                            <div class="text-muted small">110 ج للقطعة</div>
+                        </div>
+                        <div class="d-flex align-items-center gap-2">
+                            <button class="btn btn-qty">−</button>
+                            <input class="qty-input" type="number" value="1" />
+                            <button class="btn btn-qty">+</button>
+                        </div>
+                        <div class="fw-bold">110 ج</div>
+                        <button class="btn btn-delete">🗑️</button>
+                    </div>
+
+                </div>
+
+                <!-- Extra details -->
+                <div class="cart-card p-4 mt-3">
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <label class="form-label small fw-bold">رقم الطاولة</label>
+                            <select class="form-select">
+                                <option selected>طاولة 7</option>
+                                <option>طاولة 5</option>
+                                <option>طاولة 12</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label small fw-bold">ملاحظات للطلب</label>
+                            <input type="text" class="form-control" placeholder="مثلا: صوص إحساني يا عم" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Summary -->
+            <div class="col-lg-4">
+                <div class="summary-card p-4">
+                    <h5 class="fw-bold mb-3">ملخص الطلب</h5>
+                    <div class="d-flex justify-content-between mb-2">
+                        <span class="text-muted">إجمالي الأصناف</span>
+                        <span>380 ج</span>
+                    </div>
+                    <div class="d-flex justify-content-between mb-2">
+                        <span class="text-muted">الضريبة (5%)</span>
+                        <span>19 ج</span>
+                    </div>
+                    <hr />
+                    <div class="d-flex justify-content-between mb-4">
+                        <span class="fw-bold">المجموع</span>
+                        <span class="total-row">399 ج</span>
+                    </div>
+                    <button class="btn btn-confirm text-white w-100 py-2">✅ أتأكد من الطلب</button>
+                    <p class="text-center text-muted small mt-3 mb-0">هيتحول الطلب للمطبخ مباشرة 👨‍🍳</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+</html>
