@@ -10,6 +10,8 @@ namespace RestaurantApp_API.Mapping
         public MappingProfile()
         {
             CreateMap<Category, CategoryDTO>();
+            CreateMap<CategoryCreateDTO, Category>();
+            CreateMap<CategoryUpdateDTO, Category>();
 
             CreateMap<MenuItem, MenuItemDTO>()
                 .ForMember(dest => dest.CategoryName,

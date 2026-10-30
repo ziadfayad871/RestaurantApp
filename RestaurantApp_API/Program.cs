@@ -1,8 +1,10 @@
 
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using RestaurantApp_API.Data;
 using RestaurantApp_API.IRepository;
 using RestaurantApp_API.Mapping;
+using RestaurantApp_API.Model;
 using RestaurantApp_API.Repositories;
 using Scalar.AspNetCore;
 
@@ -26,7 +28,28 @@ namespace RestaurantApp_API
 
             // Add services to the container.
 
-            builder.Services.AddControllers();
+            builder.Services.AddControllers()
+                .ConfigureApiBehaviorOptions(options =>
+                {
+                    options.InvalidModelStateResponseFactory = context =>
+                    {
+                        var errors = context.ModelState
+                            .Where(entry => entry.Value?.Errors.Count > 0)
+                            .SelectMany(entry => entry.Value!.Errors)
+                            .Select(error => string.IsNullOrWhiteSpace(error.ErrorMessage)
+                                ? error.Exception?.Message ?? "Invalid value"
+                                : error.ErrorMessage)
+                            .ToList();
+
+                        return new BadRequestObjectResult(new APIResponse<object>
+                        {
+                            IsSuccess = false,
+                            StatusCode = StatusCodes.Status400BadRequest,
+                            Message = "Validation failed",
+                            ErrorMessages = errors
+                        });
+                    };
+                });
             builder.Services.AddOpenApi();
 
             var app = builder.Build();

@@ -13,6 +13,6 @@ namespace RestaurantApp_API.DTOs.MenuItemDTO
         [Range(1, int.MaxValue)]
         public int CategoryId { get; set; }
         public string ImageUrl { get; set; } = string.Empty;
-        public bool IsAvailable { get; set; }
+        public bool IsAvailable { get; set; } = true;
     }
 }
